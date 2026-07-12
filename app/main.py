@@ -2,9 +2,10 @@ import os
 
 
 def copy_file(command: str) -> None:
-    if len(command.split()) == 3 and command.split()[0] == "cp":
-        file_1 = command.split()[1]
-        file_2 = command.split()[2]
+    parts = command.split()
+    if len(parts) == 3 and parts[0] == "cp":
+        file_1 = parts[1]
+        file_2 = parts[2]
         if os.path.exists(file_1):
             if file_1 != file_2:
                 with (open(file_1, "r") as file_in,
